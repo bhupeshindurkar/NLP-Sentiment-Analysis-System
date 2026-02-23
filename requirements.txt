@@ -1,0 +1,8 @@
+pandas
+nltk
+textblob
+matplotlib
+seaborn
+vaderSentiment
+flask
+flask-cors
