@@ -10,6 +10,16 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 app = Flask(__name__)
 CORS(app)
 
+# Ensure NLTK data is downloaded on server start
+try:
+    import nltk
+    nltk.download('stopwords')
+    nltk.download('punkt')
+    nltk.download('punkt_tab')
+    nltk.download('vader_lexicon')
+except Exception as e:
+    print(f"NLTK Download error: {e}")
+
 # Import our modular logic
 tc_mod = importlib.import_module("02_text_cleaner")
 sc_mod = importlib.import_module("03_sentiment_core")
